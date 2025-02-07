@@ -22,7 +22,11 @@ function GenerateProduct({ list }) {
             <input min={0} type="number" />
             <button
               onClick={() => {
-                updationOfCart(product.title);
+                updationOfCart({
+                  title: product.title,
+                  price: product.price,
+                  value: 1,
+                });
               }}
             >
               Add to Cart

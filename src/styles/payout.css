@@ -1,0 +1,14 @@
+.payment-summary {
+  background-color: aquamarine;
+}
+
+.title {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: space-between;
+}
