@@ -1,0 +1,13 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  display: flex;
+  border-style: solid;
+  max-height: 200px;
+  max-width: 100px;
+}

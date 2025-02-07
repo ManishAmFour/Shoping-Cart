@@ -1,12 +1,7 @@
-let products;
-
-FetchFakeData();
-
 async function FetchFakeData() {
   const rawPromise = await fetch("https://fakestoreapi.com/products");
   const data = await rawPromise.json();
-
-  products = data;
+  return data;
 }
 
-export default products;
+export default FetchFakeData;

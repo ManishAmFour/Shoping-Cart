@@ -7,8 +7,7 @@ const HomePage = () => {
       <div className="header-position">
         <p className="logo-name">Shopping Cart</p>
         <div className="link-option">
-          <Link to="components/displayProd.jsx">Cart Display</Link>
-          <Link to="components/shoppingPage.jsx">Shopping Page</Link>
+          <Link to="components/displayProd.jsx">Cart </Link>
         </div>
       </div>
       <div className="navigation-bar">
