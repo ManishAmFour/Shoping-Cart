@@ -7,7 +7,7 @@ import js from "@eslint/js";
 function GenerateProduct({ list }) {
   const [products, setProducts] = useState([]);
   const [update, setUpdate] = useState(false);
-  const [value, setValue] = useState(1);
+  const [values, setValue] = useState([]);
   let cart = JSON.parse(localStorage.getItem("cart")) || [
     { title: "Demo-title", price: "Demo-Price" },
   ];
@@ -16,9 +16,24 @@ function GenerateProduct({ list }) {
     FetchFakeData().then((data) => {
       setProducts(data);
     });
+
+    let NewValue = [];
+
+    list.map((id, index) => {
+      NewValue.push({ id, value: 1 });
+    });
+    setValue(NewValue);
   }, []);
 
   function updationOfCart(product) {
+    let MajorQuantity = 0;
+
+    values.forEach((element, index) => {
+      if (element.id === product.id) {
+        MajorQuantity = parseInt(element.value);
+      }
+    });
+
     if (
       cart.find((element, index) => {
         if (element.title === product.title) {
@@ -30,7 +45,7 @@ function GenerateProduct({ list }) {
     ) {
       cart.forEach((element, index) => {
         if (element.title === product.title) {
-          element.value += 1;
+          element.value = MajorQuantity;
           localStorage.setItem("cart", JSON.stringify(cart));
         }
       });
@@ -39,30 +54,49 @@ function GenerateProduct({ list }) {
       let NewProduct = {
         title: product.title,
         price: product.price,
-        value: 1,
+        value: MajorQuantity,
       };
+
       cart.push(NewProduct);
+
       localStorage.setItem("cart", JSON.stringify(cart));
       setUpdate(!update);
     }
   }
 
-  function ChangingTheInput(e) {}
-
+  function ChangingTheInput(id, value) {
+    let NewValue = { id, value };
+    values.forEach((element, index) => {
+      if (NewValue.id === element.id) {
+        let NewArray = [...values];
+        NewArray[index] = NewValue;
+        setValue(NewArray);
+      }
+    });
+  }
   return products.map((product) => {
-    return list.map((id) => {
+    return list.map((id, index) => {
       if (product.id === id) {
         return (
           <div className="product-card" key={product.title}>
             <img className="product-image" src={product.image} />
             <p>{product.title}</p>
-            <input
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-              min={0}
-              type="number"
-            />
+            {values.map((element, valueIndex) => {
+              if (valueIndex === index) {
+                return (
+                  <input
+                    value={element.value}
+                    key={element.id}
+                    onChange={(e) => {
+                      ChangingTheInput(id, e.target.value);
+                    }}
+                    min={0}
+                    type="number"
+                  />
+                );
+              }
+            })}
+
             <button
               onClick={() => {
                 updationOfCart({
