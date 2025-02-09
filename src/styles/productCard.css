@@ -11,3 +11,9 @@
   max-height: 200px;
   max-width: 100px;
 }
+
+.cart-display {
+  position: fixed;
+  top: 12px;
+  right: 10px;
+}

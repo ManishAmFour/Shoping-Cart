@@ -1,27 +1,42 @@
-import cart from "./cart";
 import "../styles/payout.css";
 
 const CartDisplay = () => {
-  let TotalItems = 0;
-  cart.map((element, index) => {
-    TotalItems = element.value;
-  });
+  let TotalPrice = 0;
 
-  console.log(TotalItems);
+  {
+    JSON.parse(localStorage.getItem("cart")) === null
+      ? (TotalPrice = "empty")
+      : JSON.parse(localStorage.getItem("cart")).map((element, index) => {
+          if (index > 0) {
+            TotalPrice += element.price * element.value;
+          }
+        });
+  }
 
   return (
     <>
       <div></div>
       <div className="payment-summary">
         <div className="title">Shopping Cart</div>
-        {cart.map((product, index) => {
-          return (
-            <div key={product.title} className="product-detail">
-              <div>{product.title}</div>
-              <div>${product.price}</div>
-            </div>
-          );
-        })}
+        <div>
+          {JSON.parse(localStorage.getItem("cart")) === null ? (
+            <div>cart is empty</div>
+          ) : (
+            JSON.parse(localStorage.getItem("cart")).map((element, index) => {
+              if (index > 0) {
+                return (
+                  <div className="product-detail" key={element.title}>
+                    <div>
+                      {element.title}({element.value})
+                    </div>
+                    <div>${Math.round(element.price * element.value)}</div>
+                  </div>
+                );
+              }
+            })
+          )}
+        </div>{" "}
+        <div>Total price: - ${Math.round(TotalPrice)}</div>
       </div>
     </>
   );

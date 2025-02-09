@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import "../styles/home.css";
-const HomePage = () => {
+import { useState } from "react";
+
+export const HomePage = () => {
   return (
     <div className="home-page-div">
       <div className="header-position">
@@ -9,6 +11,7 @@ const HomePage = () => {
         <div className="link-option">
           <Link to="components/displayProd.jsx">Cart </Link>
         </div>
+        <div>Total Items</div>
       </div>
       <div className="navigation-bar">
         <div className="navigation-links">
