@@ -3,8 +3,6 @@ import "../styles/payout.css";
 const CartDisplay = () => {
   let TotalPrice = 0;
 
-  console.log(JSON.parse(localStorage.getItem("cart")));
-
   {
     JSON.parse(localStorage.getItem("cart")) === null
       ? (TotalPrice = "empty")

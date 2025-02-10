@@ -20,7 +20,7 @@ function GenerateProduct({ list }) {
     let NewValue = [];
 
     list.map((id, index) => {
-      NewValue.push({ id, value: 1 });
+      NewValue.push({ id, value: "" });
     });
     setValue(NewValue);
   }, []);
@@ -45,8 +45,13 @@ function GenerateProduct({ list }) {
     ) {
       cart.forEach((element, index) => {
         if (element.title === product.title) {
-          element.value = MajorQuantity;
-          localStorage.setItem("cart", JSON.stringify(cart));
+          values.forEach((value, smallIndex) => {
+            if (value.id === product.id && value.value !== "") {
+              element.value += MajorQuantity;
+
+              localStorage.setItem("cart", JSON.stringify(cart));
+            }
+          });
         }
       });
       setUpdate(!update);
@@ -56,31 +61,74 @@ function GenerateProduct({ list }) {
         price: product.price,
         value: MajorQuantity,
       };
+      values.forEach((element, index) => {
+        if (element.id === product.id && element.value !== "") {
+          cart.push(NewProduct);
 
-      cart.push(NewProduct);
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      setUpdate(!update);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          setUpdate(!update);
+        }
+      });
     }
   }
 
   function ChangingTheInput(id, value) {
     let NewValue = { id, value };
-    values.forEach((element, index) => {
-      if (NewValue.id === element.id) {
-        let NewArray = [...values];
-        NewArray[index] = NewValue;
-        setValue(NewArray);
+    if (value > -1) {
+      values.forEach((element, index) => {
+        if (NewValue.id === element.id) {
+          let NewArray = [...values];
+
+          NewArray[index] = NewValue;
+          setValue(NewArray);
+        }
+      });
+    } else {
+      alert("enter valid number of quantity");
+    }
+  }
+
+  function deleteFromCart(product) {
+    cart.forEach((element, index) => {
+      if (element.title === product.title) {
+        element.value = element.value - 1;
+        if (element.value >= 0) {
+          localStorage.setItem("cart", JSON.stringify(cart));
+          values.forEach((value, index) => {
+            if (product.id === value.id) {
+              let NewValues = [...values];
+              let NewValue = { id: value.id, value: "" };
+              NewValues[index] = NewValue;
+              setValue(NewValues);
+            }
+          });
+        }
       }
     });
   }
+
   return products.map((product) => {
     return list.map((id, index) => {
       if (product.id === id) {
         return (
           <div className="product-card" key={product.title}>
             <img className="product-image" src={product.image} />
+
             <p>{product.title}</p>
+            {JSON.parse(localStorage.getItem("cart")) === null ? (
+              <div></div>
+            ) : (
+              JSON.parse(localStorage.getItem("cart")).map((element, index) => {
+                if (element.title === product.title) {
+                  if (element.value === 0) {
+                    return <div key={element.title}></div>;
+                  }
+                  return (
+                    <div key={element.title}>Quantity:- {element.value}</div>
+                  );
+                }
+              })
+            )}
             {values.map((element, valueIndex) => {
               if (valueIndex === index) {
                 return (
@@ -108,7 +156,14 @@ function GenerateProduct({ list }) {
             >
               Add to Cart
             </button>
-            <button>Remove from Cart</button>
+            <button
+              onClick={() => {
+                deleteFromCart(product);
+              }}
+            >
+              Remove from Cart
+            </button>
+
             {product.id === 1 ? (
               <CartNumberDisplay />
             ) : product.id === 12 ? (
