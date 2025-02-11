@@ -14,7 +14,7 @@ export const HomePage = () => {
         <div className="link-option">
           <Link to="displayProd">Cart </Link>
         </div>
-        <div>Total Items</div>
+        <div>Total tems</div>
       </div>
       <div className="navigation-bar">
         <div className="navigation-links">
