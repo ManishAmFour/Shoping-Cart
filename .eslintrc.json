@@ -1,0 +1,24 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["react", "prettier"],
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "jsx": true
+    },
+    "rules": {
+      "prettier/prettier": "error", // Makes Prettier errors show up as ESLint errors
+      "react/react-in-jsx-scope": "off", // React 18 no longer needs React to be in scope
+      "react/prop-types": "off" // Disable prop-types if you're using TypeScript or another method
+    }
+  }
+  

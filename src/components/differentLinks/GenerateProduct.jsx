@@ -133,6 +133,7 @@ function GenerateProduct({ list }) {
               if (valueIndex === index) {
                 return (
                   <input
+                    name={element.title}
                     value={element.value}
                     key={element.id}
                     onChange={(e) => {
@@ -162,8 +163,8 @@ function GenerateProduct({ list }) {
               }}
             >
               Remove from Cart
+              
             </button>
-
             {product.id === 1 ? (
               <CartNumberDisplay />
             ) : product.id === 12 ? (

@@ -10,18 +10,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
     children: [
-      { path: "components/displayProd.jsx", element: <CartDisplay /> },
-      { path: "components/shoppingPage.jsx", element: <ShoppingPage /> },
+      { path: "displayProd", element: <CartDisplay /> },
+      { path: "shoppingPage", element: <ShoppingPage /> },
       {
-        path: "components/differentLinks/SaleProducts",
+        path: "SaleProducts",
         element: <SaleProducts />,
       },
       {
-        path: "components/differentLinks/AllProducts",
+        path: "AllProducts",
         element: <AllProducts />,
       },
       {
-        path: "components/differentLinks/About",
+        path: "About",
         element: <AboutSection />,
       },
     ],
