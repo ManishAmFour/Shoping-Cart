@@ -15,7 +15,6 @@ const CartDisplay = () => {
 
   return (
     <>
-      <div></div>
       <div className="payment-summary">
         <div className="title">Shopping Cart</div>
         <div>
@@ -26,17 +25,19 @@ const CartDisplay = () => {
               if (index > 0) {
                 return (
                   <div className="product-detail" key={element.title}>
-                    <div>
+                    <p className="product-title">
                       {element.title}({element.value})
-                    </div>
-                    <div>${Math.round(element.price * element.value)}</div>
+                    </p>
+                    <p className="product-price">
+                      ${Math.round(element.price * element.value)}
+                    </p>
                   </div>
                 );
               }
             })
           )}
         </div>{" "}
-        <div>Total price: - ${Math.round(TotalPrice)}</div>
+        <p className="total-price">Total price: - ${Math.round(TotalPrice)}</p>
       </div>
     </>
   );

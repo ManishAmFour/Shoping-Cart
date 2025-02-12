@@ -1,7 +1,5 @@
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
- 
-  
 }
 
 .header-position {
@@ -13,20 +11,17 @@ body{
   top: 0;
 }
 
-
-.logo-p{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.logo-p {
+  font-family: Georgia, "Times New Roman", Times, serif;
   display: inline-block;
   color: wheat;
   margin-top: 0px;
   font-size: 50px;
-
 }
 
-
 .logo-name {
-  max-height: 50px;
-
+  max-height: 60px;
+  z-index: 12;
   padding: 0px;
   display: flex;
   justify-content: center;
@@ -40,7 +35,7 @@ body{
   flex-direction: column;
 }
 
-a:visited{
+a:visited {
   color: wheat;
   text-decoration: none;
 }
@@ -54,25 +49,22 @@ a:visited{
   color: wheat;
   left: 0;
   right: 0;
-  
+  margin-top: -40px;
 }
 
-.Home-Intro{
- position: fixed;
- left: 0;
- right: 0;
- display: flex;
- justify-content: center;
- margin-top: 200px;
- font-size: 100px;
-
-
+.Home-Intro {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  font-size: 100px;
 }
-
-
 
 .content-description {
   margin-top: 100px;
+  row-gap: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
@@ -87,9 +79,6 @@ a:visited{
   column-gap: 10px;
 }
 
-
-
-
 .footer-position {
   position: fixed;
   bottom: 0;
@@ -100,12 +89,16 @@ a:visited{
   justify-content: center;
 }
 
-@media screen and (max-width: 500px){
+
+
+
+
+@media screen and (max-width: 500px) {
   .content-description {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
   }
 
-  .Home-Intro{
+  .Home-Intro {
     position: fixed;
     left: 0;
     right: 0;
@@ -113,20 +106,15 @@ a:visited{
     justify-content: center;
     margin-top: 200px;
     font-size: 50px;
-   
-   
-   }
-
+  }
 }
 
-
-
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
   .content-description {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
-  .Home-Intro{
+  .Home-Intro {
     position: fixed;
     left: 0;
     right: 0;
@@ -134,15 +122,9 @@ a:visited{
     justify-content: center;
     margin-top: 200px;
     font-size: 30px;
-   
-   
-   }
+  }
 
-   .logo-p{
+  .logo-p {
     font-size: 40px;
-   }
-
-
+  }
 }
-
-

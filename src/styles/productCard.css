@@ -1,25 +1,79 @@
 .product-card {
   display: flex;
+  padding: 10px;
+  border-style: dotted;
+  border-color: black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.product-qty{
+  margin-bottom: 5px;
+  
+}
+
+.operative-button{
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-style: none;
+  background-color: wheat;
+  padding: 10px;
+}
+
+.operative-button:hover{
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: wheat;
+  padding: 10px;
+}
+
+.input-quantity{
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  font-size: 15px;
+  border-color: black;
+}
+
+
 .product-image {
   display: flex;
-  border-style: solid;
   max-height: 400px;
   max-width: 200px;
+  
+}
+.product-title2{
+  display: flex;
+  padding: 10px;
+  margin-top: 4px;
+  max-width: 500px;
+  border-width: 0.5px;
+  text-align: center;
+  border-style: solid;
+  background-color: wheat;
+  border-color: black;
 }
 
-.total-item-indication{
+
+.total-item-indication {
   color: wheat;
 }
-
 
 .cart-display {
   position: fixed;
   color: wheat;
   top: 12px;
   right: 10px;
+}
+
+.cart-display-no {
+  margin-top: 10px;
+  margin-right: -6px;
 }

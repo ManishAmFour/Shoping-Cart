@@ -9,4 +9,13 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./tests/setup.js",
   },
+  server: {
+    hmr: {
+      overlay: false,
+    }, // Ensure HMR is enabled
+    watch: {
+      usePolling: true, // Polling can help on some file systems
+      interval: 100,
+    },
+  },
 });

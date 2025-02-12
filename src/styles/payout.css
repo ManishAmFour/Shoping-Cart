@@ -1,9 +1,12 @@
 .payment-summary {
-  background-color: aquamarine;
+  background-color: wheat;
+  border-color: black;
+  border-style: solid;
+  padding: 10px;
 }
 
 .title {
-  background-color: aquamarine;
+  background-color: wheat;
   display: flex;
   justify-content: center;
 }
@@ -11,4 +14,27 @@
 .product-detail {
   display: flex;
   justify-content: space-between;
+}
+
+.product-title {
+  max-width: 350px;
+}
+
+.total-price {
+  display: flex;
+  background-color: black;
+  color: wheat;
+  margin-bottom: 0px;
+  justify-content: center;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .product-title {
+    font-size: 14px;
+    max-width: 200px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
 }

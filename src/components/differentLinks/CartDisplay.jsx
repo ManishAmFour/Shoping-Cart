@@ -1,12 +1,16 @@
-function CartNumberDisplay() {
-  if (JSON.parse(localStorage.getItem("cart")) === null) {
-    return 
-    
+import { useEffect } from "react";
 
-    <div>
-      Total Items in the Cart
-    <p className="cart-display">0</p>
-    </div>;
+function CartNumberDisplay() {
+  useEffect(() => {
+    console.log("hello");
+  }, []);
+
+  if (JSON.parse(localStorage.getItem("cart")) === null) {
+    return (
+      <div>
+        <p className="cart-display">Total Items in the Cart:- 0</p>
+      </div>
+    );
   } else {
     let TotalNumber = 0;
 
@@ -16,7 +20,17 @@ function CartNumberDisplay() {
       }
     });
 
-    return <div className="cart-display"> {TotalNumber}</div>;
+    return (
+      <div>
+        {window.innerWidth > 500 ? (
+          <p className="cart-display">
+            Total Items in the Cart:- {TotalNumber}
+          </p>
+        ) : (
+          <div className="cart-display cart-display-no">{TotalNumber}</div>
+        )}
+      </div>
+    );
   }
 }
 

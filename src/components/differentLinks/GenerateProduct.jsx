@@ -2,7 +2,6 @@ import FetchFakeData from "../cartItems";
 import { useEffect, useState } from "react";
 import "../../styles/productCard.css";
 import CartNumberDisplay from "./CartDisplay";
-import js from "@eslint/js";
 
 function GenerateProduct({ list }) {
   const [products, setProducts] = useState([]);
@@ -114,7 +113,7 @@ function GenerateProduct({ list }) {
           <div className="product-card" key={product.title}>
             <img className="product-image" src={product.image} />
 
-            <p>{product.title}</p>
+            <p className="product-title2">{product.title}</p>
             {JSON.parse(localStorage.getItem("cart")) === null ? (
               <div></div>
             ) : (
@@ -124,7 +123,7 @@ function GenerateProduct({ list }) {
                     return <div key={element.title}></div>;
                   }
                   return (
-                    <div key={element.title}>Quantity:- {element.value}</div>
+                    <div className="product-qty" key={element.title}>Quantity:- {element.value}</div>
                   );
                 }
               })
@@ -133,6 +132,7 @@ function GenerateProduct({ list }) {
               if (valueIndex === index) {
                 return (
                   <input
+                    className="input-quantity"
                     name={element.title}
                     value={element.value}
                     key={element.id}
@@ -147,6 +147,7 @@ function GenerateProduct({ list }) {
             })}
 
             <button
+              className="operative-button add-button"
               onClick={() => {
                 updationOfCart({
                   title: product.title,
@@ -158,12 +159,12 @@ function GenerateProduct({ list }) {
               Add to Cart
             </button>
             <button
+              className="operative-button remove-button"
               onClick={() => {
                 deleteFromCart(product);
               }}
             >
               Remove from Cart
-              
             </button>
             {product.id === 1 ? (
               <CartNumberDisplay />
