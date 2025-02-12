@@ -5,6 +5,8 @@ import HomePage from "./components/Home";
 import SaleProducts from "./components/differentLinks/SaleProducts";
 import AllProducts from "./components/differentLinks/AllProducts";
 import AboutSection from "./components/differentLinks/About";
+
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -10,31 +10,37 @@ export const HomePage = () => {
   return (
     <div className="home-page-div">
       <div className="header-position">
-        <p className="logo-name">Shopping Cart</p>
-        <div className="link-option">
+        <div className="logo-name">
+        <p className="logo-p" onClick={()=>{setHomeState(true)}}>Shopping Cart</p>
+        </div>
+        <div className="link-option" onClick={()=>{setHomeState(false)}}>
           <Link to="displayProd">Cart </Link>
         </div>
-        <div>Total tems</div>
       </div>
       <div className="navigation-bar">
         <div className="navigation-links">
-          <div>
+          <div className="navigation-specific-link" onClick={()=>{setHomeState(false)}}>
             <Link to="SaleProducts">
               Discount Products
             </Link>
           </div>
-          <div>
+          <div onClick={()=>{setHomeState(false)}}> 
             <Link to="AllProducts">All products</Link>
           </div>
-          <div>
+          <div onClick={()=>{setHomeState(false)}}>
             <Link to="About">About us</Link>
           </div>
         </div>
       </div>
-      <div className="content-description">
-
-        {homeState === true? <div>Welcome to our Shopping Page</div> : <Outlet />}
-      </div>
+      
+      
+    <div className="content-description">
+      {homeState?<div className="Home-Intro">Welcome To our page</div>:<Outlet />}
+      
+      
+    </div>
+    
+     
       <div className="footer-position">
         <p>footer</p>
       </div>

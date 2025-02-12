@@ -1,12 +1,33 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+ 
+  
+}
+
 .header-position {
-  background-color: aqua;
+  background-color: black;
   position: fixed;
+  margin-bottom: 0px;
   right: 0;
   left: 0;
   top: 0;
 }
 
+
+.logo-p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: inline-block;
+  color: wheat;
+  margin-top: 0px;
+  font-size: 50px;
+
+}
+
+
 .logo-name {
+  max-height: 50px;
+
+  padding: 0px;
   display: flex;
   justify-content: center;
 }
@@ -19,20 +40,42 @@
   flex-direction: column;
 }
 
+a:visited{
+  color: wheat;
+  text-decoration: none;
+}
+
 .navigation-bar {
+  margin-top: 0px;
   position: fixed;
   display: flex;
   justify-content: center;
-  background-color: beige;
+  background-color: black;
+  color: wheat;
   left: 0;
   right: 0;
-  margin-top: 40px;
+  
 }
 
+.Home-Intro{
+ position: fixed;
+ left: 0;
+ right: 0;
+ display: flex;
+ justify-content: center;
+ margin-top: 200px;
+ font-size: 100px;
+
+
+}
+
+
+
 .content-description {
-  position: fixed;
+  margin-top: 100px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
   top: 66px;
   left: 0;
   bottom: 0;
@@ -44,6 +87,9 @@
   column-gap: 10px;
 }
 
+
+
+
 .footer-position {
   position: fixed;
   bottom: 0;
@@ -53,3 +99,50 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 500px){
+  .content-description {
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .Home-Intro{
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 50px;
+   
+   
+   }
+
+}
+
+
+
+@media screen and (max-width: 320px){
+  .content-description {
+      grid-template-columns: 1fr;
+  }
+
+  .Home-Intro{
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 30px;
+   
+   
+   }
+
+   .logo-p{
+    font-size: 40px;
+   }
+
+
+}
+
+

@@ -1,6 +1,12 @@
 function CartNumberDisplay() {
   if (JSON.parse(localStorage.getItem("cart")) === null) {
-    return <div className="cart-display"> Cart Is empty</div>;
+    return 
+    
+
+    <div>
+      Total Items in the Cart
+    <p className="cart-display">0</p>
+    </div>;
   } else {
     let TotalNumber = 0;
 

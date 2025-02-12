@@ -8,12 +8,18 @@
 .product-image {
   display: flex;
   border-style: solid;
-  max-height: 200px;
-  max-width: 100px;
+  max-height: 400px;
+  max-width: 200px;
 }
+
+.total-item-indication{
+  color: wheat;
+}
+
 
 .cart-display {
   position: fixed;
+  color: wheat;
   top: 12px;
   right: 10px;
 }
