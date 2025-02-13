@@ -1,10 +1,4 @@
-import { useEffect } from "react";
-
 function CartNumberDisplay() {
-  useEffect(() => {
-    console.log("hello");
-  }, []);
-
   if (JSON.parse(localStorage.getItem("cart")) === null) {
     return (
       <div>
@@ -22,13 +16,13 @@ function CartNumberDisplay() {
 
     return (
       <div>
-        {window.innerWidth > 500 ? (
+        {window.innerWidth > 600 ? (
           <p className="cart-display">
             Total Items in the Cart:- {TotalNumber}
           </p>
-        ) : (
+        ) : window.innerWidth <= 600 && window.innerWidth > 300 ? (
           <div className="cart-display cart-display-no">{TotalNumber}</div>
-        )}
+        ) : null}
       </div>
     );
   }
