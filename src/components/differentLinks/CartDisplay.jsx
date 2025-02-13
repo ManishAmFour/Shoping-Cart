@@ -16,11 +16,11 @@ function CartNumberDisplay() {
 
     return (
       <div>
-        {window.innerWidth > 700 ? (
+        {window.innerWidth > 1000 ? (
           <p className="cart-display">
             Total Items in the Cart:- {TotalNumber}
           </p>
-        ) : window.innerWidth <= 700 && window.innerWidth > 300 ? (
+        ) : window.innerWidth < 1000 ? (
           <div className="cart-display cart-display-no">{TotalNumber}</div>
         ) : null}
       </div>
